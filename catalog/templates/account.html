@@ -1,0 +1,37 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="candyStore">
+  <h1 class="storeTitle">Добро пожаловать в магазин сладостей!</h1>
+  {% if user.is_authenticated %}
+    <div class="userCabinet">
+      <h2 class="cabinetTitle">Личный кабинет</h2>
+      <p class="cabinetText">Привет, {{ user.username }}!</p>
+      <p class="cabinetText"><a href="{% url 'logout' %}" class="cabinetTextA">Выйти</a></p>
+      
+      <h3 class="cabinetCart">Корзина</h3>
+      {% if products %}
+        <a href="{% url 'buy_order' %}" class="buyButton">Купить</a>
+      {% endif %}
+      
+      {% if products %}
+        <ul class="productList">
+          {% for product in products %}
+            <li class="productItem">
+              <p class="productTitle">{{ product.title }}</p>
+              <p class="productPrice">{{ product.price }} рублей</p>
+              <a href="{% url 'remove_from_cart' product.id %}" class="removeButton">Убрать из корзины</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="emptyCartText">Корзина пуста</p>
+      {% endif %}
+    </div>
+  {% else %}
+    <div class="loginContainer">
+      <p class="loginText">Пожалуйста, <a href="{% url 'login' %}" class="loginLink">войдите</a>, чтобы получить доступ к личному кабинету.</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

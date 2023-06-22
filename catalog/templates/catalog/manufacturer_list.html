@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="pls">
+    <h1 class="ManufacturerList">Список производителей</h1>
+
+    {% if manufacturer_list %}
+    <ul>
+
+      {% for manufacturer in manufacturer_list %}
+      <li>
+        <a href="{{ manufacturer.get_absolute_url }}" class="ManufacturerText2">{{ manufacturer.name }}</a> ({{manufacturer.country}})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>Нет ни одного производителя.</p>
+    {% endif %}
+</div>
+{% endblock %}

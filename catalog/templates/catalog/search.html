@@ -1,0 +1,93 @@
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+<form class="search-bar row mt-4" action="{% url 'search' %}" method="get">
+    <div class="col-md-9 col-sm-12">
+        <input type="text" name="search_input" placeholder="Поиск по названию сладости" class="form-control">
+    </div>
+    <div class="col-md-3 col-sm-12">
+        <button type="submit" class="btn btn-primary btn-block">Найти</button>
+    </div>
+</form>
+
+
+<nav class="navbar navbar-expand-md navbar-light bg-light mt-5">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Dagashi kashi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/products/filterfootwear/">Традиционные сладости</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/products/filterpants/">Современные сладости</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/products/filterouterwear/">Необычные сладости</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h1 class="text1 mt-5">Список товаров</h1>
+
+{% if search_input %}
+    
+    {% if products %}
+    <div class="product-list row mt-5">
+        {% for product in products %}
+            <div class="col-md-3 col-sm-12 mb-4">
+                <div class="card">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-sm-12">
+                <p>Сладости не найдены.</p>
+            </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <div class="col-sm-12">
+            <p>Сладости не найдены.</p>
+        </div>
+    {% endif %}  
+{% else %}
+    
+    {% if products %}
+    <div class="product-list row mt-5">
+        {% for product in products %}
+            <div class="col-md-3 col-sm-12 mb-4">
+                <div class="card">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-sm-12">
+                <p>Сладости не найдены.</p>
+            </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p>На данный момент нет сладостей в нашем магазине.</p>
+    {% endif %}
+{% endif %}
+</div> {% endblock %}

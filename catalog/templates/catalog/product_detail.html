@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="container"> <div class="product-details"> <h1 class="title">Title: {{ product.title }}</h1>
+  <p class="manufacturer"><strong>Производитель:</strong> <a href="" class="manufacturer-text">{{ product.manufacturer }}</a></p> 
+  <p class="summary"><strong>Описание:</strong> {{ product.summary }}</p>
+  <p class="type"><strong>Тип:</strong> {{ product.type }}</p>
+
+  <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
+
+  <p class="price"><strong>Цена:</strong> {{ product.price }}</p>
+
+  <p class="order-count"><strong>Продано:</strong> {{ product.order_count }}</p>
+  <p class="view-count"><strong>Просмотрено:</strong> {{ product.view_count }}</p>
+
+{% if user.is_authenticated %}
+  <a href="{% url 'add_to_cart' product.id %}" class="add-to-cart-button">Добавить в корзину</a>
+{% endif %}
+</div> </div> {% endblock %}

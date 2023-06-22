@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+a {
+  position: relative;
+  color: #ff80cc;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+a::before {
+  position: absolute;
+  content: attr(data-content);
+  color: #808080;
+  text-decoration: none;
+  overflow: hidden;
+  transition: width 275ms ease;
+}
+
+a::before {
+  width: 0;
+  white-space: nowrap;
+}
+
+a:hover::before {
+  width: 100%;
+}
+
+.head {
+  padding-top: 80px;
+}
+
+.menu {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  margin-top: 1%;
+  background-color: #ff80cc;
+  height: 5%;
+  width: 100%;
+  padding-left: 550px;
+  padding-top: 5px;
+}
+
+.menuClick {
+  padding-left: 3%;
+  list-style-type: none;
+  transform: translate(-12em);
+  font-size: 25px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.logo {
+  font-size: 45px;
+  line-height: 30px;
+  transform: translate(-11em);
+}
+
+.header-description {
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 45px;
+  margin-bottom: 61px;
+  padding-bottom: -5%;
+  padding-left: 5%;
+}
+
+.text {
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 45px;
+  margin-bottom: 61px;
+  padding-bottom: -5%;
+  padding-left: 5%;
+}
+
+.SEARCH {
+  margin-left: 5%;
+}
+
+.input {
+  width: 650px;
+  height: 50px;
+  text-align: center;
+  color: #4e4c4c;
+}
+
+.button {
+  width: 150px;
+  height: 50px;
+  color: #4e4c4c;
+}
+
+.menu2 {
+  display: flex;
+  margin-top: 1%;
+  background-color: #ff80cc;
+  height: 45px;
+  width: 100%;
+  padding-left: 55%;
+}
+
+.filtermenu {
+  padding-left: 3%;
+  list-style-type: none;
+  transform: translate(-12em);
+  font-size: 25px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.text1 {
+  font-weight: 300;
+  font-size: 65px;
+  line-height: 45px;
+  margin-bottom: 61px;
+  padding-bottom: -5%;
+  padding-left: 5%;
+}
+
+.product {
+  font-size: 25px;
+  text-decoration: none;
+  color: #4e4c4c;
+  padding-left: 5%;
+}
+
+.Manufacturer {
+  margin-left: 5%;
+  font-size: 25px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+.ManufacturerText {
+  font-size: 25px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+.title {
+  margin-left: 5%;
+}
+
+.Summary {
+  margin-left: 7%;
+  font-size: 25px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+.Type {
+  margin-left: 5%;
+  font-size: 25px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+img {
+  padding-left: 5%;
+}
+
+.textDetail {
+  margin-left: 5%;
+  font-size: 20px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+.ManufacturerList {
+  margin-left: 5%;
+  font-size: 45px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+.ManufacturerText2 {
+  margin-left: 5%;
+  font-size: 30px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+.cabinetTitle {
+  margin-left: 5%;
+  font-size: 45px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+.cabinetText {
+  margin-left: 5%;
+  font-size: 25px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+.cabinetTextA {
+  font-size: 25px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+.cabinetCart {
+  margin-left: 5%;
+  font-size: 45px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+.cabinetProduct {
+  margin-left: 5%;
+  font-size: 45px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+.contact {
+  margin-left: 5%;
+  font-size: 45px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+.contactText {
+  margin-left: 5%;
+  font-size: 25px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+.login {
+  margin-left: 5%;
+  font-size: 25px;
+  text-decoration: none;
+  color: #4e4c4c;
+}
+
+/* Дополнительные стили и вещи */
+
+.pls {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-details {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-details img {
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.textDetail a {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #ff80cc;
+  color: #ffffff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.textDetail a:hover {
+  background-color: #e654a6;
+}
+
+.menu2 .filtermenu {
+  margin-left: 2%;
+}
+
+.menuClick:hover,
+.filtermenu:hover {
+  color: #e654a6;
+}
